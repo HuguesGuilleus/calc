@@ -1,0 +1,4 @@
+- Test:
+	- gestion des codes de retour
+	- vérifier que le fichier ne génèrent pas d'erreur
+	- supprimer à la fin le fichier err.log
