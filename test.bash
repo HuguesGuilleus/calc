@@ -5,8 +5,12 @@ clear
 
 for lang in `cat lang.txt`
 do
+	total=0
+	reussite=0
+	
 	for test in output/*.txt
 	do
+		(( total += 1 ))
 		name=`awk '{ if(NR==1) print $0 }' $test`
 		prog=`awk '{ if(NR==2) print $0 }' $test`
 		argv=`awk '{ if(NR==3) print $0 }' $test`
@@ -43,9 +47,11 @@ do
 				echo "Reçu:    $retu"
 			else
 				printf "\033[32mOK\033[0m\n"
+				(( reussite += 1 ))
 			fi
 		fi
 	done
+	printf "\033[01;35mTotal: $reussite/$total\033[0m\n\n"
 done
 
 
