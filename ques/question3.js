@@ -3,12 +3,6 @@
 
 var cp = require('child_process');
 
-/*
-console.log(
-"./question1.js "+process.argv[2]+" "+process.argv[4]
-);
-*/
-
 cp.exec("ques/question1.js "+process.argv[2]+" "+process.argv[4], (err,stdout,stderr)=>{
 	stdout = stdout.split('\n');
 	
