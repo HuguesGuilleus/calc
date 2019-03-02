@@ -1,4 +1,5 @@
 #!/bin/bash
+# GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
 clear
 
@@ -12,14 +13,16 @@ do
 		code=`awk '{ if(NR==4) print $0 }' $test`
 		expe=`awk '{ if(NR>=5) print $0 }' $test`
 		
-		printf "\033[01;34mTest $lang $prog «$name» :: \033[0m"
+		printf "\033[01;34mTest $lang $prog «$name» :: "
 		
-		if [[ !( -x ques/$prog.$lang)  ]]
+		if [[ !( -e ques/$prog.$lang)  ]]
 		then
-			printf "file expected\033[0m\n"
-			echo "//Le fichier doit exister et être exécutable!"
+			printf "\033[33mERREUR <ques/$prog.$lang> n'existe pas\033[0m\n"
+		elif [[ !( -x ques/$prog.$lang ) ]]
+		then
+			printf "\033[33mERREUR <ques/$prog.$lang> n'est pas exécutable\033[0m\n"
 		else
-			ques/$prog.$lang $argv > out.log 2> err.log
+			ques/$prog.$lang $argv 1> out.log 2> err.log
 			retu=$?
 			out=`cat out.log`
 			err=`cat err.log`
