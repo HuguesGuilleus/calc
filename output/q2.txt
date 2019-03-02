@@ -1,0 +1,15 @@
+Q2
+question2
+\( 2 + -3 - 5 x +9 / 4  \)
+0
+para ouvrante
+entier
+somme
+entier
+sous
+entier
+mult
+entier
+div
+entier
+para fermante
