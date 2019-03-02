@@ -1,0 +1,8 @@
+Q1: nb entier positif et négatif
+question1
+-9 10
+0
+somme -9 10 = 1
+sous -9 10 = -19
+mult -9 10 = -90
+div -9 10 = 0

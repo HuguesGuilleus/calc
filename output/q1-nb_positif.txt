@@ -1,0 +1,8 @@
+Q1: nb entier positif
+question1
+2 3
+0
+somme 2 3 = 5
+sous 2 3 = -1
+mult 2 3 = 6
+div 2 3 = 0

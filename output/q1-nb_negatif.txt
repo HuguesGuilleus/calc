@@ -1,0 +1,8 @@
+Q1: nb entier négatif
+question1
+-9 -5
+0
+somme -9 -5 = -14
+sous -9 -5 = -4
+mult -9 -5 = 45
+div -9 -5 = 1

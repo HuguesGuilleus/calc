@@ -1,8 +1,0 @@
-Nombre entier
-question1
-3 2
-0
-somme 3 2 = 5
-sous 3 2 = 1
-mult 3 2 = 6
-div 3 2 = 1

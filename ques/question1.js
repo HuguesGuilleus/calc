@@ -9,7 +9,11 @@ try{
 	console.log("somme",a,b,"=", a+b);
 	console.log("sous", a,b,"=", a-b);
 	console.log("mult", a,b,"=", a*b);
-	console.log("div",  a,b,"=", Math.floor(a/b) );
+	
+	let div = Math.floor(a/b) ;
+	if(div<0)
+		div++;
+	console.log("div",  a,b,"=", div );
 	
 }catch(err){
 	console.error("Erreur lors de l'analyse des arguments");
