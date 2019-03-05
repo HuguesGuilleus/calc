@@ -1,0 +1,7 @@
+Q5: Dernier entier
+question5
+5 + 3
+0
+entier
+somme
+entier

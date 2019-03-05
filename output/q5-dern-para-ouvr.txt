@@ -1,0 +1,10 @@
+Q5: Dernier paranthèse ouvrante
+question5
+\( 5 + 3 \(
+1
+para ouvrante
+entier
+somme
+entier
+para ouvrante
+** erreur paranthèse ! **

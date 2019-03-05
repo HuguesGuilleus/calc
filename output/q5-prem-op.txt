@@ -1,0 +1,9 @@
+Q5: Premier opérateur
+question5
++ 5 + 3
+1
+somme
+entier
+somme
+entier
+** erreur opérateur premier **

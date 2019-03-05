@@ -1,0 +1,10 @@
+Q5: Premier paranthèse fermante
+question5
+\) 5 + 3 \(
+1
+para fermante
+entier
+somme
+entier
+para ouvrante
+** erreur parenthèse ! **

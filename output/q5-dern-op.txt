@@ -1,0 +1,9 @@
+Q5: Dernier opérateur
+question5
+5 + 3 +
+1
+entier
+somme
+entier
+somme
+** erreur opérateur dernier **
