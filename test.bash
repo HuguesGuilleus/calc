@@ -38,8 +38,9 @@ do
 			elif [[ $expe != $out ]]
 			then
 				printf "\033[31mERREUR stdout\033[0m\n"
-				printf "Attendu: [[[$expe]]]\n"
-				printf "Sortie:  [[[$out]]]\n"
+				echo "Arguments: [[[$argv]]]"
+				echo "Attendu: [[[$expe]]]\n"
+				echo "Sortie:  [[[$out]]]\n"
 			elif [[ $code != $retu ]]
 			then
 				printf "\033[31mERREUR return code\033[0m\n"
