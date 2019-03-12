@@ -6,3 +6,4 @@ div
 entier
 somme
 entier
+** erreur opérateur en premier **

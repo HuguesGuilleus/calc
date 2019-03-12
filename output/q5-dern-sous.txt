@@ -6,4 +6,4 @@ entier
 somme
 entier
 sous
-** erreur opérateur dernier **
+** erreur opérateur en dernier **

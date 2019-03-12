@@ -5,3 +5,4 @@ question5
 somme
 sous
 entier
+** erreur alternance ! **

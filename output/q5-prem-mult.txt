@@ -6,3 +6,4 @@ mult
 entier
 somme
 entier
+** erreur opérateur en premier **

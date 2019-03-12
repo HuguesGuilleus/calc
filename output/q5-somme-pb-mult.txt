@@ -6,3 +6,4 @@ entier
 mult
 somme
 entier
+** erreur alternance ! **
