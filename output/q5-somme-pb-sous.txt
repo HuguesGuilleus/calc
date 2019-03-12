@@ -1,0 +1,7 @@
+Q5: Somme problème: soustraction
+question5
+- + 7
+1
+sous
+somme
+entier

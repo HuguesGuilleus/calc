@@ -1,0 +1,7 @@
+Q5: Soustraction problème: doucle soustraction
+question5
+- - 7
+1
+sous
+sous
+entier

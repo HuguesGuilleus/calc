@@ -1,0 +1,8 @@
+Q5: Soustraction problème: division
+question5
+2 / - 7
+1
+entier
+div
+sous
+entier

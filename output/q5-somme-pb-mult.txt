@@ -1,0 +1,8 @@
+Q5: Somme problème: multiplication
+question5
+2 x + 7
+1
+entier
+mult
+somme
+entier

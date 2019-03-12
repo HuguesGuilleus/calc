@@ -1,9 +1,9 @@
-Q5: Dernier opérateur
+Q5: Dernier PB soustraction
 question5
-5 + 3 +
+5 + 3 -
 1
 entier
 somme
 entier
-somme
+sous
 ** erreur opérateur dernier **

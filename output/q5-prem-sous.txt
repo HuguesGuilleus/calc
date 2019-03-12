@@ -1,0 +1,8 @@
+Q5: Premier OK soustarction
+question5
+- 5 + 3
+0
+sous
+entier
+somme
+entier

@@ -1,0 +1,9 @@
+Q5: Dernier PB multiplication
+question5
+5 + 3 x
+1
+entier
+somme
+entier
+mult
+** erreur opérateur dernier **

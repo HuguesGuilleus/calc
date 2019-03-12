@@ -1,0 +1,12 @@
+Q5: Soustraction valide
+question5
+\( - 2 - 3 \) - 5
+0
+para ouvrante
+sous
+entier
+sous
+entier
+para fermante
+sous
+entier

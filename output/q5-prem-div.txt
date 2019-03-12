@@ -1,0 +1,8 @@
+Q5: Premier PB division
+question5
+/ 5 + 3
+1
+div
+entier
+somme
+entier

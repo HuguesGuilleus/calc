@@ -1,0 +1,7 @@
+Q5: Somme problème: double somme
+question5
++ + 7
+1
+somme
+somme
+entier

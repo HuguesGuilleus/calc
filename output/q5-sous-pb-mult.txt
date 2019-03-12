@@ -1,0 +1,8 @@
+Q5: Soustraction problème: multiplication
+question5
+2 x - 7
+1
+entier
+mult
+sous
+entier

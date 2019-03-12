@@ -1,9 +1,12 @@
-Q5: Dernier paranthèse fermante
+Q5: Somme valide
 question5
-\( 5 + 3 \)
+\( + 2 + 3 \) + 5
 0
 para ouvrante
+somme
 entier
 somme
 entier
 para fermante
+somme
+entier

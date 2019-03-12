@@ -1,0 +1,8 @@
+Q5: Somme problème: division
+question5
+2 / + 7
+1
+entier
+div
+somme
+entier
