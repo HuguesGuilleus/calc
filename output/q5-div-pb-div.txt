@@ -1,0 +1,9 @@
+Q5: Division problème double division
+question5
+7 / / 8
+1
+entier
+div
+div
+entier
+** erreur alternance ! **

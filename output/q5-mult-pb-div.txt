@@ -1,0 +1,9 @@
+Q5: Multiplication problème division
+question5
+7 / x 8
+1
+entier
+div
+mult
+entier
+** erreur alternance ! **

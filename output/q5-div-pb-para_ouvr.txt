@@ -1,0 +1,11 @@
+Q5: Division problème para ouvrante
+question5
+7 \( / 5 \) 8
+1
+entier
+para ouvrante
+div
+entier
+para fermante
+entier
+** erreur alternance ! **

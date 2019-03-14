@@ -1,0 +1,9 @@
+Q5: Multiplication problème somme
+question5
+7 + x 8
+1
+entier
+somme
+mult
+entier
+** erreur alternance ! **

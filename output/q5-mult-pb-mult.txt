@@ -1,0 +1,9 @@
+Q5: Multiplication problème double multiplication
+question5
+7 x x 8
+1
+entier
+mult
+mult
+entier
+** erreur alternance ! **

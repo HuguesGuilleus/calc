@@ -1,0 +1,11 @@
+Q5: Division OK
+question5
+\( 2 / 3 \) / 5
+0
+para ouvrante
+entier
+div
+entier
+para fermante
+div
+entier

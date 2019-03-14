@@ -1,0 +1,9 @@
+Q5: Multiplication problème soustraction
+question5
+7 - x 8
+1
+entier
+sous
+mult
+entier
+** erreur alternance ! **

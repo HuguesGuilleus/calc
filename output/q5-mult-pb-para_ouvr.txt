@@ -1,0 +1,11 @@
+Q5: Multiplication problème para ouvrante
+question5
+7 \( x 5 \) 8
+1
+entier
+para ouvrante
+mult
+entier
+para fermante
+entier
+** erreur alternance ! **

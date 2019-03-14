@@ -1,0 +1,11 @@
+Q5: Multiplication OK
+question5
+\( 2 x 3 \) x 5
+0
+para ouvrante
+entier
+mult
+entier
+para fermante
+mult
+entier

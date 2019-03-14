@@ -28,22 +28,34 @@ do
 			then
 				errPara=true
 			fi
-			echo "para fermante";;
+			echo "para fermante" ;;
 		"somme")
 			echo $t
 			if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 			then
 				errAlt=true
-			fi
-			;;
+			fi ;;
 		"sous")
 			echo $t
 			if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 			then
 				errAlt=true
-			fi
-			;;
-		*) echo $t ;;
+			fi ;;
+		"mult")
+			echo $t
+			if [[ $before == "para_ouvrante"
+				|| $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
+			then
+				errAlt=true
+			fi ;;
+		"div")
+			echo $t
+			if [[ $before == "para_ouvrante"
+				|| $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
+			then
+				errAlt=true
+			fi ;;
+		*) echo $t ;; # entier
 	esac
 	before=$t
 done
