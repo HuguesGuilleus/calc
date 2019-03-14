@@ -1,0 +1,9 @@
+Q5: Parenthèse fermante division
+question5
+\( 2 / \)
+1
+para ouvrante
+entier
+div
+para fermante
+** erreur alternance ! **

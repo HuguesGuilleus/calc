@@ -17,10 +17,10 @@ para=0 # para sera le niveau de parenthèsage, para>=0
 before=0
 for t in `echo $out | sed 's#para #para_#g'`
 do
+	echo $t | sed 's/_/ /'
 	case $t in
 		"para_ouvrante")	
-			(( para++ ))
-			echo "para ouvrante" ;;
+			(( para++ )) ;;
 		"para_fermante")
 			(( para-- ))
 			# Si ($rapa < 0) => on fera une erreur après l'itération
@@ -28,34 +28,37 @@ do
 			then
 				errPara=true
 			fi
-			echo "para fermante" ;;
+			if [[ $before == "para_ouvrante" || $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
+			then
+				errAlt=true
+			fi ;;
 		"somme")
-			echo $t
 			if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 			then
 				errAlt=true
 			fi ;;
 		"sous")
-			echo $t
 			if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 			then
 				errAlt=true
 			fi ;;
 		"mult")
-			echo $t
 			if [[ $before == "para_ouvrante"
 				|| $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 			then
 				errAlt=true
 			fi ;;
 		"div")
-			echo $t
 			if [[ $before == "para_ouvrante"
 				|| $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 			then
 				errAlt=true
 			fi ;;
-		*) echo $t ;; # entier
+		*) # entier
+			if [[ $before == "entier" ]]
+			then
+				errAlt=true
+			fi ;;
 	esac
 	before=$t
 done

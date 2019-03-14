@@ -1,0 +1,9 @@
+Q5: Parenthèse fermante somme
+question5
+\( 2 + \)
+1
+para ouvrante
+entier
+somme
+para fermante
+** erreur alternance ! **

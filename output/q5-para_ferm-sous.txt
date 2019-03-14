@@ -1,0 +1,9 @@
+Q5: Parenthèse fermante soustraction
+question5
+\( 2 - \)
+1
+para ouvrante
+entier
+sous
+para fermante
+** erreur alternance ! **

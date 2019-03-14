@@ -1,0 +1,29 @@
+Q5: Parenthèse ouvrante
+question5
+9 \( \( 5 + \( 4 \) - \( 3 \) x \( 2 \) / \( 1 \) \) \) \( 7 \)
+0
+entier
+para ouvrante
+para ouvrante
+entier
+somme
+para ouvrante
+entier
+para fermante
+sous
+para ouvrante
+entier
+para fermante
+mult
+para ouvrante
+entier
+para fermante
+div
+para ouvrante
+entier
+para fermante
+para fermante
+para fermante
+para ouvrante
+entier
+para fermante

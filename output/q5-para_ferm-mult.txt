@@ -1,0 +1,9 @@
+Q5: Parenthèse fermante multiplication
+question5
+\( 2 x \)
+1
+para ouvrante
+entier
+mult
+para fermante
+** erreur alternance ! **

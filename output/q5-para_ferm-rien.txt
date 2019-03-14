@@ -1,0 +1,7 @@
+Q5: Parenthèse vide
+question5
+\( \)
+1
+para ouvrante
+para fermante
+** erreur alternance ! **
