@@ -22,7 +22,7 @@ try{
 			console.log("** pas d'argument **");
 			process.exit(1);
 		case "err para":
-			console.log("** erreur de parenthèses ! **");
+			console.log("** erreur parenthèse ! **");
 			process.exit(1);
 		case "err Alt":
 			console.log("** erreur alternance ! **");
@@ -71,6 +71,8 @@ function alternance(stdout){
 			}
 			before = e ;
 	}
+	if(para>0)
+		throw "err para"
 }
 
 /// Vérification du premier et du dernier éléments
