@@ -4,7 +4,7 @@
 var cp = require('child_process');
 
 try {
-	if(process.argv===2)
+	if(process.argv.length===2)
 		throw "pas d'arg";
 
 	// on envoie les arguments vers Q2 pour analyse
@@ -23,7 +23,7 @@ try {
 			console.log("** erreur d'alternance ! **");
 			process.exit(1);
 		case "pas d'arg":
-			console.log("** erreur pas d'argument ! **");
+			console.log("** pas d'argument **");
 			process.exit(1);
 		case "err prem":
 			console.log("** erreur opérateur en premier ! **");
