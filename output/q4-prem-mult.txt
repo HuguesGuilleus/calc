@@ -1,0 +1,6 @@
+Q4: Premier multiplication
+question4
+x 2
+1
+mult
+entier

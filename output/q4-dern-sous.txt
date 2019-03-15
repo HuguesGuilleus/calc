@@ -1,0 +1,6 @@
+Q4: Dernier soustraction
+question4
+4 -
+1
+entier
+sous

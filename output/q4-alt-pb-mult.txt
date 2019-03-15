@@ -1,0 +1,9 @@
+Q4: Alternance PB double multiplication
+question4
+3 x x 5
+1
+entier
+mult
+mult
+entier
+** erreur d'alternance ! **

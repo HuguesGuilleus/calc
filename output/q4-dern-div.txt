@@ -1,0 +1,6 @@
+Q4: Dernier division
+question4
+7 /
+1
+entier
+div

@@ -1,0 +1,9 @@
+Q4: Alternance PB double division
+question4
+3 / / 5
+1
+entier
+div
+div
+entier
+** erreur d'alternance ! **

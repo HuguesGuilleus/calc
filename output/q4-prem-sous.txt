@@ -1,0 +1,6 @@
+Q4: Premier soustraction
+question4
+- 2
+0
+sous
+entier

@@ -1,0 +1,6 @@
+Q4: Dernier multiplication
+question4
+5 x
+1
+entier
+mult

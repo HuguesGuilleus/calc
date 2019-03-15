@@ -1,0 +1,9 @@
+Q4: Alternance PB double somme
+question4
+3 + + 5
+1
+entier
+somme
+somme
+entier
+** erreur d'alternance ! **

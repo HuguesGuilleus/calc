@@ -1,0 +1,13 @@
+Q4: Alternance OK
+question4
+3 + 2 - 5 x 6 / 8
+0
+entier
+somme
+entier
+sous
+entier
+mult
+entier
+div
+entier

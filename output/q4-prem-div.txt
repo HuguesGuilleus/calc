@@ -1,0 +1,6 @@
+Q4: Premier division
+question4
+/ 2
+1
+div
+entier

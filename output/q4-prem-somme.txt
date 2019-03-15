@@ -1,0 +1,6 @@
+Q4: Premier somme
+question4
++ 2
+0
+somme
+entier

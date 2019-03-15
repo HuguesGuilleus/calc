@@ -1,0 +1,6 @@
+Q4: Dernier somme
+question4
+2 +
+1
+entier
+somme

@@ -1,0 +1,9 @@
+Q4: Alternance PB double soustarction
+question4
+3 - - 5
+1
+entier
+sou
+sous
+entier
+** erreur d'alternance ! **
