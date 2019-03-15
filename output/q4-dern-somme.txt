@@ -4,3 +4,4 @@ question4
 1
 entier
 somme
+** erreur opérateur en dernier ! **

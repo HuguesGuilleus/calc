@@ -4,3 +4,4 @@ question4
 1
 div
 entier
+** erreur opérateur en premier ! **
