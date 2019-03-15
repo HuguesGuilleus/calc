@@ -1,0 +1,10 @@
+Q5: Parenthsès en exès
+question5
+7 \( \( 8 \)
+1
+entier
+para ouvrante
+para ouvrante
+entier
+para fermante
+** erreur parenthèse ! **
