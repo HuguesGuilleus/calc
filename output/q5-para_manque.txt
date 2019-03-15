@@ -1,0 +1,10 @@
+Q5: Parenthsès en manques
+question5
+7 \( 8 \) \)
+1
+entier
+para ouvrante
+entier
+para fermante
+para fermante
+** erreur parenthèse ! **
