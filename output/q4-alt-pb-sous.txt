@@ -3,7 +3,7 @@ question4
 3 - - 5
 1
 entier
-sou
+sous
 sous
 entier
 ** erreur d'alternance ! **
