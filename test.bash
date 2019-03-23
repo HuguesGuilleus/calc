@@ -7,8 +7,8 @@ for lang in `cat lang.txt`
 do
 	total=0
 	reussite=0
-	
-	for test in output/*.txt
+
+	for test in output/*/*.txt
 	do
 		(( total += 1 ))
 		name=`awk '{ if(NR==1) print $0 }' $test`
@@ -16,9 +16,9 @@ do
 		argv=`awk '{ if(NR==3) print $0 }' $test`
 		code=`awk '{ if(NR==4) print $0 }' $test`
 		expe=`awk '{ if(NR>=5) print $0 }' $test`
-		
+
 		printf "\033[01;34mTest $lang $prog «$name» :: "
-		
+
 		if [[ !( -e ques/$prog.$lang)  ]]
 		then
 			printf "\033[33mERREUR <ques/$prog.$lang> n'existe pas\033[0m\n"
@@ -30,7 +30,7 @@ do
 			retu=$?
 			out=`cat out.log`
 			err=`cat err.log`
-			
+
 			if [[ $err ]]
 			then
 				printf "\033[31mERREUR stderr\033[0m\n"
@@ -63,4 +63,3 @@ do
 		rm $file
 	fi
 done
-
