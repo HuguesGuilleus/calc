@@ -1,5 +1,5 @@
-Q6: Soustraction et Division
-question6.txt
+Q6+: Soustraction et Division
+question6+
 8 - 4 / 2
 0
 6

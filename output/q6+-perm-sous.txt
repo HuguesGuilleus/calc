@@ -1,5 +1,5 @@
-Q6: Premier Soustraction
-question6
+Q6+: Premier Soustraction
+question6+
 - 3 + 2
 0
 -1

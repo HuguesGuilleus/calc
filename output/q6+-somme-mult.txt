@@ -1,5 +1,5 @@
-Q6: Somme et Multiplication
-question6
+Q6+: Somme et Multiplication
+question6+
 6 + 2 x 3
 0
 12
