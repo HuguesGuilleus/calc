@@ -1,0 +1,5 @@
+Q6: Exemple 1 de l'énoncé
+question6
+2 x 3 + 2
+0
+résultat = 8
