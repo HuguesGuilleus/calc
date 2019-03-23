@@ -1,0 +1,5 @@
+Q6: Somme et Soustraction
+question6
+2 + 3 - 1
+0
+4
