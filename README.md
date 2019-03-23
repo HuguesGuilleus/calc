@@ -1,7 +1,7 @@
 Projet Calculatrice
 ====================
 
-# Exercices
+## Exercices
 - Exercice 1: Réalise les quatre opérations sur deux entiers.
 - Exercice 2: Identification des types.
 - Exercice 3: Calculs élémentaires.
