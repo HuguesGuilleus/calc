@@ -1,0 +1,5 @@
+Q8: Multiplications implicites sur les parenthèses
+question8
+3 \( 2 x 5 \) \( 2 - 1 \) 2
+0
+60
