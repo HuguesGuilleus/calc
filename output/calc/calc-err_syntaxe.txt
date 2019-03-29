@@ -1,0 +1,10 @@
+Calc: Erreur de syntaxe
+calc
+2 + 3 /
+1
+Erreur de syntaxe:
+entier
+somme
+entier
+div
+** erreur opérateur en dernier **
