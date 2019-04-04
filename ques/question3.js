@@ -2,21 +2,27 @@
 // GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
 var cp = require('child_process');
+var q1 = require('./ques/question1.js');
 
-cp.exec("ques/question1.js "+process.argv[2]+" "+process.argv[4], (err,stdout,stderr)=>{
-	stdout = stdout.split('\n');
-	
-	switch(process.argv[3]){
-		case '+': var ligne = 0; break;
-		case '-': var ligne = 1; break;
-		case 'x': var ligne = 2; break;
-		case '/': var ligne = 3; break;
-		default:
-			process.exit(1);
-	}
-	
-	var nb = stdout[ligne].replace(/.*= ([+-]?\d+)/, "$1");
-	console.log( nb );
-	
-	process.exit(0);
-});
+
+var a = JSON.parse(process.argv[2]);
+var b = JSON.parse(process.argv[4]);
+var resultat ;
+switch(process.argv[3]){
+	case "+":
+		resultat = q1.somme(a,b);
+		break;
+	case "-":
+		resultat = q1.sous(a,b);
+		break;
+	case "x":
+		resultat = q1.mult(a,b);
+		break;
+	case "/":
+		resultat = q1.div(a,b);
+		break;
+	default:
+		console.error("Q3: Argument 3 est operateur inconnu");
+		process.exit(1);
+}
+console.log(resultat);
