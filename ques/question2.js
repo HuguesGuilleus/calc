@@ -1,20 +1,36 @@
 #!/usr/bin/nodejs
 // GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
-for(let i=2; i<process.argv.length ;i++){
-	switch(process.argv[i]){
-		case '\\(': console.log("para ouvrante"); break;
-		case '\\)': console.log("para fermante"); break;
-		case '+':  console.log("somme"); break;
-		case '-':  console.log("sous"); break;
-		case 'x':  console.log("mult"); break;
-		case '/':  console.log("div"); break;
+
+if ( require.main === module ) {
+	// le programme est un processus seul
+	for(let i=2;i<process.argv.length;i++){
+		console.log(type(process.argv[i]));
+	}
+} else {
+	// le programme est un module et on exporte la fonction type
+	module.exports = {
+		type:type,
+	}
+};
+
+// retourne le type (String) de la chaîne prise en argument
+function type(el){
+	switch (el) {
+		case "\\(":
+		case "(":
+			return "para ouvrante";
+		case "\\)":
+		case ")":
+			return "para fermante";
+		case "+":	return "somme";
+		case "-":	return "sous";
+		case "x":	return "mult";
+		case "/":	return "div";
 		default:
-			if( /[+-]?\d+/.test(process.argv[i]) )
-				console.log("entier");
-			else{
-				console.error("argument inconnu ::",process.argv[i]);
-				process.exit(1);
-			}
+			if( /[+-?\d+]/.test(el))
+				return "entier";
+			else
+				return "argument inconnu";
 	}
 }

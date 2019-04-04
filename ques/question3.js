@@ -1,28 +1,35 @@
 #!/usr/bin/nodejs
 // GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
-var cp = require('child_process');
-var q1 = require('./ques/question1.js');
+const q1 = require("./ques/question1.js");
+const q2 = require("./ques/question2.js");
 
-
-var a = JSON.parse(process.argv[2]);
-var b = JSON.parse(process.argv[4]);
-var resultat ;
-switch(process.argv[3]){
-	case "+":
-		resultat = q1.somme(a,b);
-		break;
-	case "-":
-		resultat = q1.sous(a,b);
-		break;
-	case "x":
-		resultat = q1.mult(a,b);
-		break;
-	case "/":
-		resultat = q1.div(a,b);
-		break;
-	default:
-		console.error("Q3: Argument 3 est operateur inconnu");
-		process.exit(1);
+if (require.main === module) {
+	console.log(calc( process.argv[2],process.argv[3],process.argv[4] ));
+} else {
+	module.exports = {
+		calc:calc,
+	}
 }
-console.log(resultat);
+
+// renvoie le résultat simple d'un calcule
+function calc(a,op,b) {
+	// on transforme les chaîne de caractère en nombre
+	if(typeof a === "string")
+		a = JSON.parse(a);
+	if(typeof b === "string")
+		b = JSON.parse(b);
+
+	switch( q2.type(op) ){
+		case "somme":
+			return q1.somme(a,b);
+		case "sous":
+			return q1.sous(a,b);
+		case "mult":
+			return q1.mult(a,b);
+		case "div":
+			return q1.div(a,b);
+		default:
+			throw "Q3 Operateur inconnu"+op ;
+	}
+}
