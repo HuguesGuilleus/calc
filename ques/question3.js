@@ -5,7 +5,11 @@ const q1 = require("./ques/question1.js");
 const q2 = require("./ques/question2.js");
 
 if (require.main === module) {
-	console.log(calc( process.argv[2],process.argv[3],process.argv[4] ));
+	try {
+		console.log(calc( process.argv[2],process.argv[3],process.argv[4] ));
+	} catch (err) {
+		console.error("Q3:",err);
+	}
 } else {
 	module.exports = {
 		calc:calc,
@@ -30,6 +34,6 @@ function calc(a,op,b) {
 		case "div":
 			return q1.div(a,b);
 		default:
-			throw "Q3 Operateur inconnu"+op ;
+			throw "Q3 Operateur inconnu "+op ;
 	}
 }
