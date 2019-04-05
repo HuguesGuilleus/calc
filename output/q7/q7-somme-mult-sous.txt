@@ -1,0 +1,5 @@
+Q7: Somme, Multiplication et Soustraction
+question7
+\( 2 + 3 \) x \( 2 - 4 \)
+0
+résultat = -10

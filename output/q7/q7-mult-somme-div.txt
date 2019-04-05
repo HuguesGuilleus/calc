@@ -1,0 +1,5 @@
+Q7: Multiplication, Somme et Division
+question7
+\( 2 x 3 \) + \( 4 / 2 \)
+0
+résultat = 8

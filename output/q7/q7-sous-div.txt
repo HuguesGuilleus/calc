@@ -1,0 +1,5 @@
+Q7: Soustraction et Division
+question7
+4 - \( 4 / 2 \)
+0
+résultat = 2

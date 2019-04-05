@@ -1,0 +1,5 @@
+Q7: Soustraction, Division et Somme
+question7
+\( 9 - 3 \) / \( 3 - 5 \)
+0
+résultat = -3

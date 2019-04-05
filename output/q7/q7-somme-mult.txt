@@ -1,0 +1,5 @@
+Q7: Somme et Multiplication
+question7
+2 + \( 2 x 4 \)
+0
+résultat = 10
