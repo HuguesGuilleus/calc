@@ -5,9 +5,15 @@ clear
 
 for lang in `cat lang.txt`
 do
+	# On teste si le laguage est bien supporté
+	if [[ `hello/word.$lang 2>&1` != "Hello Word" ]]; then
+		printf "\033[01;31mERREUR le language <$lang> n'est pas implémenté\n\n"
+		continue
+	fi
+
+	# On fait tout les tests
 	total=0
 	reussite=0
-
 	for test in output/*/*.txt
 	do
 		(( total += 1 ))
