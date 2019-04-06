@@ -14,7 +14,7 @@ do
 	# On fait tout les tests
 	total=0
 	reussite=0
-	for test in output/*/*.txt
+	for test in dataTest/*/*.txt
 	do
 		(( total += 1 ))
 		name=`awk '{ if(NR==1) print $0 }' $test`
@@ -40,6 +40,7 @@ do
 			if [[ $err ]]
 			then
 				printf "\033[31mERREUR stderr\033[0m\n"
+				echo "Arguments: [[[$argv]]]"
 				echo "[[[$err]]]"
 			elif [[ $expe != $out ]]
 			then
