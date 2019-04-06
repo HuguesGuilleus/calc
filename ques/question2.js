@@ -11,6 +11,7 @@ if ( require.main === module ) {
 	// le programme est un module et on exporte la fonction type
 	module.exports = {
 		type:type,
+		typeAll:typeAll,
 	}
 };
 
@@ -33,4 +34,16 @@ function type(el){
 			else
 				return "argument inconnu";
 	}
+}
+
+/**
+	@param {[]String} les paramètres qui serons analysé
+	@param {[]String} la liste des types pour chaque paramètres
+*/
+function typeAll(tab) {
+	var ret=[];
+	for (let e of tab) {
+		ret.push(type(e))
+	}
+	return ret;
 }
