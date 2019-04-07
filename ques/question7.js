@@ -1,29 +1,38 @@
 #!/usr/bin/nodejs
 // GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
-// hugo
+// HENROTTE Hugo CPI2 <henrotte.hugo@gmail.com>
 
-var cp = require('child_process');
+const q2 = require("./ques/question2.js") ;
+const calcExpr = require("./ques/question6.js").calcExpr ;
 
-try {
+if (require.main === module) {
+	console.log("résultat =", calcExpr1Para(process.argv.slice(2)) );
+} else {
+	module.exports = {
+		calcExpr1Para:calcExpr1Para,
+	};
+}
+
+/**
+	@arg arg {[]String} une exprésion avec un seul niveau de parenthèses
+	@return {Number} le résultat (pas de priorité des opérateurs)
+*/
+function calcExpr1Para(arg) {
 	var int_global=[];
-	var mode_para = false;
-	for (let i=2;i<process.argv.length;i++) {
-		let type = cp.execFileSync("ques/question2.js", [process.argv[i]] ).toString().replace(/\n$/,"");
-
-		if (type == "para ouvrante") {
+	var mode_para=false;
+	for (let e of arg) {
+		let type = q2.type(e);
+		if (type === "para ouvrante") {
 			mode_para=true;
 			var int_para=[];
-		} else if (type == "para fermante") {
+		} else if (type === "para fermante") {
 			mode_para=false;
-			int_global.push( cp.execFileSync("ques/question6.js", int_para).toString()
-				.replace(/résultat = ([+-]?\d+)\n/, "$1") );
+			int_global.push( calcExpr(int_para) );
 		} else if (mode_para) {
-			int_para.push(process.argv[i])
+			int_para.push(e)
 		} else {
-			int_global.push(process.argv[i])
+			int_global.push(e)
 		}
 	}
-	console.log( cp.execFileSync("ques/question6.js", int_global).toString().replace(/\n$/,"") );
-} catch (e) {
-	console.error(e);
+	return calcExpr(int_global);
 }
