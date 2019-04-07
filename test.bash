@@ -14,6 +14,7 @@ do
 	# On fait tout les tests
 	total=0
 	reussite=0
+	timeBefore=`date +%s`
 	for test in dataTest/*/*.txt
 	do
 		(( total += 1 ))
@@ -59,7 +60,8 @@ do
 			fi
 		fi
 	done
-	printf "\033[01;35mTotal: $reussite/$total\033[0m\n\n"
+	timeAfter=`date +%s`
+	printf "\033[01;35mTotal: $reussite/$total en $(( timeAfter - timeBefore )) s\033[0m\n\n"
 done
 
 
