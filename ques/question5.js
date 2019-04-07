@@ -1,48 +1,99 @@
 #!/usr/bin/nodejs
 // GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
-var cp = require('child_process');
+const q2 = require("./ques/question2.js");
 
-try{
-	if(process.argv.length===2)
-		throw "err aucun arg";
-	// on prépare les arguments, on lance Q2, on affiche stdout
-	let arg = [];
-	for(let i=2;i<process.argv.length;i++)
-		arg.push(process.argv[i]);
-	let stdout = cp.execFileSync("ques/question2.js", arg).toString();
-	stdout = stdout.substring(0,stdout.length-1);
-	console.log(stdout);
+if (require.main === module) {
+	if (testSyntaxe( process.argv.slice(2), true )) {
+		process.exit(1);
+	}
+} else {
+	module.exports = {
+		testSyntaxe:testSyntaxe,
+	};
+}
 
-	alternance(stdout);
-	prem_dern(stdout);
-}catch(err){
-	switch (err) {
-		case "err aucun arg":
-			console.log("** pas d'argument **");
-			process.exit(1);
-		case "err para":
-			console.log("** erreur parenthèse ! **");
-			process.exit(1);
-		case "err Alt":
-			console.log("** erreur alternance ! **");
-			process.exit(1);
-		case "err prem":
-			console.log("** erreur opérateur en premier **");
-			process.exit(1);
-		case "err dernier":
-			console.log("** erreur opérateur en dernier **");
-			process.exit(1);
-		default:
-			console.error(err);
+
+/**
+	@param arg {[]String} liste des opérandes
+	@param print {Boolean} indique si il faut afficher les types en temps normale
+	@ret {Boolean} false:OK, true:erreur
+*/
+function testSyntaxe(arg, print) {
+	try {
+		if (arg.length===0) {
+			throw "err aucun arg";
+		}
+		var type = q2.typeAll(arg);
+		if (print) {
+			for (let e of type) {
+				console.log(e);
+			}
+		}
+		alternance(type);
+		prem_dern(type);
+		return false;
+	} catch (err) {
+		if(print===false){
+			for (let e of type) {
+				console.log(e);
+			}
+		}
+		switch (err) {
+			case "err aucun arg":
+				console.log("** pas d'argument **");
+				break;
+			case "err alt":
+				console.log("** erreur alternance ! **");
+				break;
+			case "err para":
+				console.log("** erreur parenthèse ! **");
+				break;
+			case "err prem":
+				console.log("** erreur opérateur en premier **");
+				break;
+			case "err dern":
+				console.log("** erreur opérateur en dernier **");
+				break;
+			default:
+				console.error(err);
+				process.exit(2);
+		}
+		return true;
 	}
 }
 
-// vérification de l'alternance et des parnethèses
-function alternance(stdout){
+
+/**
+	@prama arg {[]String} La liste des types des arguments
+	Vérification du premier et du dernier éléments
+*/
+function prem_dern(arg){
+	switch(arg[0]){
+		case 'mult':
+		case 'div':
+			throw "err prem";
+			break;
+	}
+	switch (arg[arg.length-1]) {
+		case "somme":
+		case "sous":
+		case "mult":
+		case "div":
+			throw "err dern";
+			break;
+	}
+}
+
+
+/**
+	@prama arg {[]String} La liste des types des arguments
+	vérification de l'alternance entre les opérandes et des parnethèses
+*/
+function alternance(arg){
 	let para = 0;
 	let before = null;
-	for (let e of stdout.split('\n') ) {
+	for (let e of arg ) {
 		switch(e){
 			case "para ouvrante":
 				para++;
@@ -52,43 +103,25 @@ function alternance(stdout){
 				if(para<0)
 					throw "err para";
 				if(before==="para ouvrante" || before==="somme" || before==="sous" || before==="mult" || before==="div")
-					throw "err Alt";
+					throw "err alt";
 				break;
 			case "somme":
 			case "sous":
 				if(before === "somme" || before === "sous" || before === "mult" || before === "div")
-					throw "err Alt";
+					throw "err alt";
 				break;
 			case "mult":
 			case "div":
 				if(before==="para ouvrante" || before==="somme" || before==="sous" || before==="mult" || before==="div" )
-					throw "err Alt";
+					throw "err alt";
 				break;
 			case "entier":
 				if(before === "entier")
-					throw "err Alt";
+					throw "err alt";
 				break;
 			}
 			before = e ;
 	}
 	if(para>0)
 		throw "err para"
-}
-
-/// Vérification du premier et du dernier éléments
-function prem_dern(stdout){
-	switch(stdout.split('\n')[0]){
-		case 'mult':
-		case 'div':
-			throw "err prem";
-			break;
-	}
-	switch (stdout.split('\n').pop()) {
-		case "somme":
-		case "sous":
-		case "mult":
-		case "div":
-			throw "err dernier";
-			break;
-	}
 }
