@@ -8,7 +8,7 @@ if (require.main === module) {
 	console.log( calcExprPrio(process.argv.slice(2)) );
 } else {
 	module.exports = {
-		calcExpr:calcExprPrio,
+		calcExprPrio:calcExprPrio,
 	};
 }
 
