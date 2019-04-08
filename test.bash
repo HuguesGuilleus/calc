@@ -6,7 +6,10 @@ clear
 for lang in `cat lang.txt`
 do
 	# On teste si le laguage est bien supporté
-	if [[ `hello/word.$lang 2>&1` != "Hello Word" ]]; then
+	if [[ !( -x hello/word.$lang ) ]]; then
+		printf "\033[01;33mERREUR le programme hello/word.$lang n'existe pas ou n'est pas exécutable\n\n"
+		continue
+	elif [[ `hello/word.$lang 2>&1` != "Hello Word" ]]; then
 		printf "\033[01;31mERREUR le language <$lang> n'est pas implémenté\n\n"
 		continue
 	fi
