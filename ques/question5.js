@@ -4,8 +4,12 @@
 const q2 = require("./ques/question2.js");
 
 if (require.main === module) {
-	if (testSyntaxe( process.argv.slice(2), true )) {
+	let test = testSyntaxe( process.argv.slice(2), true ) ;
+	if (test.pb) {
+		console.log(test.out);
 		process.exit(1);
+	} else {
+		console.log(test.out);
 	}
 } else {
 	module.exports = {
@@ -16,50 +20,53 @@ if (require.main === module) {
 
 /**
 	@param arg {[]String} liste des opérandes
-	@param print {Boolean} indique si il faut afficher les types en temps normale
-	@ret {Boolean} false:OK, true:erreur
+	@ret {Object}
+		pb{Boolean}: Y-a-til eu un problème,
+		out{String}: Les type et les éventuelles erreurs
 */
-function testSyntaxe(arg, print) {
+function testSyntaxe(arg) {
 	try {
+		var out = "";
+		var probleme = false;
 		if (arg.length===0) {
 			throw "err aucun arg";
 		}
 		var type = q2.typeAll(arg);
-		if (print) {
-			for (let e of type) {
-				console.log(e);
-			}
+		// on affiche tout les type
+		for (var i = 0; i < type.length-1; i++) {
+			out += type[i]+"\n" ;
 		}
+		out += type[type.length-1] ;
+		// on teste
 		alternance(type);
 		prem_dern(type);
-		return false;
 	} catch (err) {
-		if(print===false){
-			for (let e of type) {
-				console.log(e);
-			}
-		}
+		probleme = true ;
 		switch (err) {
 			case "err aucun arg":
-				console.log("** pas d'argument **");
+				out += "** pas d'argument **" ;
 				break;
 			case "err alt":
-				console.log("** erreur alternance ! **");
+				out += "\n** erreur alternance ! **" ;
 				break;
 			case "err para":
-				console.log("** erreur parenthèse ! **");
+				out += "\n** erreur parenthèse ! **" ;
 				break;
 			case "err prem":
-				console.log("** erreur opérateur en premier **");
+				out += "\n** erreur opérateur en premier **" ;
 				break;
 			case "err dern":
-				console.log("** erreur opérateur en dernier **");
+				out += "\n** erreur opérateur en dernier **" ;
 				break;
 			default:
-				console.error(err);
+				console.error(err,out);
 				process.exit(2);
 		}
-		return true;
+	} finally {
+		return {
+			pb:probleme,
+			out:out,
+		};
 	}
 }
 
