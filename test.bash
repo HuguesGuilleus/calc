@@ -64,7 +64,12 @@ do
 		fi
 	done
 	timeAfter=`date +%s`
-	printf "\033[01;35mTotal: $reussite/$total en $(( timeAfter - timeBefore )) s\033[0m\n\n"
+	printf "\033[01;35mTotal: $reussite/$total en $(( timeAfter - timeBefore )) s"
+	if [[ $reussite == $total ]]; then
+		printf "\033[32m * Full Sucess *\033[0m\n\n"
+	else
+		printf "\033[0m\n\n"
+	fi
 done
 
 
