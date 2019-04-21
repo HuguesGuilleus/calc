@@ -6,9 +6,10 @@ const q8 = require("./ques/question8.js");
 const arg = process.argv;
 arg.splice(0,2);
 
-if (q5.testSyntaxe(arg,false))
+var test = q5.testSyntaxe(arg,false);
+if (test.pb)
 {
-	console.log("Erreur de syntaxe:");
+	console.log("Erreur de syntaxe:\n"+test.out);
 	process.exit(1);
 }
 
