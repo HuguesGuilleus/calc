@@ -3,9 +3,9 @@
 
 clear
 
-for lang in `cat lang.txt`
+for lang in bash php js
 do
-	# On teste si le laguage est bien supporté
+	# Vérification du bon fonctionnement de l'interpréteur avec un "Hello Word"
 	if [[ !( -x hello/word.$lang ) ]]; then
 		printf "\033[01;33mERREUR le programme hello/word.$lang n'existe pas ou n'est pas exécutable\n\n"
 		continue
@@ -14,21 +14,23 @@ do
 		continue
 	fi
 
-	# On fait tout les tests
 	total=0
 	reussite=0
 	timeBefore=`date +%s`
 	for test in dataTest/*/*.txt
+	# for test in dataTest/test.txt
 	do
 		(( total += 1 ))
-		name=`awk '{ if(NR==1) print $0 }' $test`
-		prog=`awk '{ if(NR==2) print $0 }' $test`
-		argv=`awk '{ if(NR==3) print $0 }' $test`
-		code=`awk '{ if(NR==4) print $0 }' $test`
-		expe=`awk '{ if(NR>=5) print $0 }' $test`
+		name=`sed -n "1 p" $test`
+		prog=`sed -n "2 p" $test`
+		argv=`sed -n "3 p" $test`
+		norm_ret=`sed -n "4 p" $test`
+		norm_out=`awk 'BEGIN{e=0}{if(NR>4 && $0==""){e=1}else if(NR>4&&e==0) print $0}' $test`
+		norm_err=`awk 'BEGIN{e=0}{if(NR>4 && $0==""){e=1}else if(NR>4&&e==1) print $0}' $test`
 
 		printf "\033[01;34mTest $lang $prog «$name» :: "
 
+		# Vérification que le programme existe et est exécutable
 		if [[ !( -e ques/$prog.$lang)  ]]
 		then
 			printf "\033[33mERREUR <ques/$prog.$lang> n'existe pas\033[0m\n"
@@ -36,27 +38,30 @@ do
 		then
 			printf "\033[33mERREUR <ques/$prog.$lang> n'est pas exécutable\033[0m\n"
 		else
+			# On lance le programme et on récupère stdout, stderr et le code de retour
 			ques/$prog.$lang $argv 1> out.log 2> err.log
-			retu=$?
-			out=`cat out.log`
-			err=`cat err.log`
+			recu_ret=$?
+			recu_out=`cat out.log`
+			recu_err=`cat err.log`
 
-			if [[ $err ]]
-			then
-				printf "\033[31mERREUR stderr\033[0m\n"
-				echo "Arguments: [[[$argv]]]"
-				echo "[[[$err]]]"
-			elif [[ $expe != $out ]]
+			if [[ $norm_out != $recu_out ]]
 			then
 				printf "\033[31mERREUR stdout\033[0m\n"
 				echo "Arguments: [[[$argv]]]"
-				echo "Attendu: [[[$expe]]]"
-				echo "Sortie: [[[$out]]]"
-			elif [[ $code != $retu ]]
+				echo "Attendu: [[[$norm_out]]]"
+				echo "Sortie: [[[$recu_out]]]"
+			elif [[ $norm_err != $recu_err ]]
 			then
-				printf "\033[31mERREUR return code\033[0m\n"
-				echo "attendu: $code"
-				echo "Reçu:    $retu"
+				printf "\033[31mERREUR stderr\033[0m\n"
+				echo "Arguments: [[[$argv]]]"
+				echo "Attendu: [[[$norm_err]]]"
+				echo "Sortie: [[[$recu_err]]]"
+			elif [[ $norm_ret != $recu_ret ]]
+			then
+				printf "\033[31mERREUR code de retour\033[0m\n"
+				echo "Arguments: [[[$argv]]]"
+				echo "Attendu: $norm_ret"
+				echo "Reçu:    $recu_ret"
 			else
 				printf "\033[32mOK\033[0m\n"
 				(( reussite += 1 ))
@@ -73,6 +78,7 @@ do
 done
 
 
+# on supprime les fichier qui recevaient stdout et stderr
 for file in out.log err.log
 do
 	if [[ -e $file ]]
