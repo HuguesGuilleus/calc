@@ -6,4 +6,5 @@ entier
 div
 div
 entier
+
 ** erreur d'alternance ! **

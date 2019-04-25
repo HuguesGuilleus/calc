@@ -6,4 +6,5 @@ entier
 somme
 somme
 entier
+
 ** erreur d'alternance ! **

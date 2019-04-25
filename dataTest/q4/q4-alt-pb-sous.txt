@@ -1,4 +1,4 @@
-Q4: Alternance PB double soustarction
+Q4: Alternance PB double soustraction
 question4
 3 - - 5
 1
@@ -6,4 +6,5 @@ entier
 sous
 sous
 entier
+
 ** erreur d'alternance ! **

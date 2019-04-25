@@ -39,20 +39,19 @@ function testSyntaxe(arg) {
 	} catch (err) {
 		switch (err) {
 			case "pas d'arg":
-				console.log("** pas d'argument **");
+				console.error("** pas d'argument **");
 				break;
 			case "err alt":
-				console.log("** erreur d'alternance ! **");
+				console.error("** erreur d'alternance ! **");
 				break;
 			case "err prem":
-				console.log("** erreur opérateur en premier ! **");
+				console.error("** erreur opérateur en premier ! **");
 				break;
 			case "err dern":
-				console.log("** erreur opérateur en dernier ! **");
+				console.error("** erreur opérateur en dernier ! **");
 				break;
 			default:
 				console.error(err);
-				process.exit(2);
 		}
 		return true;
 	}

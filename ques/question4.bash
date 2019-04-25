@@ -6,6 +6,8 @@ if [[ -z $MAIN ]]; then
 fi
 source ques/question2.bash
 
+# Affiche les erreurs
+# @retourn 0: Ok, autre:erreur
 function testSyntaxe() {
 	# Vérification de l'existance des arguments
 	if [[ $# == 0 ]]
@@ -34,7 +36,7 @@ function testSyntaxe() {
 				fi ;;
 			*)
 				echo "** erreur élément inconnu ! **"
-				return 1
+				return 2
 		esac
 		before=$t
 	done

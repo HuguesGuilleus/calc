@@ -4,4 +4,5 @@ question4
 1
 entier
 sous
+
 ** erreur opérateur en dernier ! **
