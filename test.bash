@@ -3,7 +3,7 @@
 
 clear
 
-for lang in bash php js
+for lang in bash
 do
 	# Vérification du bon fonctionnement de l'interpréteur avec un "Hello Word"
 	if [[ !( -x hello/word.$lang ) ]]; then
@@ -17,7 +17,7 @@ do
 	total=0
 	reussite=0
 	timeBefore=`date +%s`
-	for test in dataTest/*/*.txt
+	for test in dataTest/q5/*.txt
 	# for test in dataTest/test.txt
 	do
 		(( total += 1 ))
@@ -78,7 +78,7 @@ do
 done
 
 
-# on supprime les fichier qui recevaient stdout et stderr
+# on supprime les fichiers qui recevaient stdout et stderr
 for file in out.log err.log
 do
 	if [[ -e $file ]]
