@@ -1,56 +1,72 @@
 #!/bin/bash
 # GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
-if [[ $# == 0 ]]
-then
-	echo "** pas d'argument **"
-	exit 1
+if [[ -z $MAIN ]]; then
+	MAIN="q4"
 fi
+source ques/question2.bash
 
-# On met les parenthèses sous la forme \( ou \) et on envoi ça dans la Q2 puis affiche les types
-argv=`echo $* | sed 's#(#\\(#g' | sed 's#)#\\)#g'`
-out=`ques/question2.bash $argv`
+function testSyntaxe() {
+	# Vérification de l'existance des arguments
+	if [[ $# == 0 ]]
+	then
+		echo "** pas d'argument **"
+		return 1
+	fi
 
-# Analyse de chaque élément
-errAlt=false
-before=""
-for t in `echo $out | sed 's/para /para_/'`
-do
-	echo $t | sed 's/para_/para /'
-	case $t in
-		"somme" | "sous" | "mult" | "div" )
-			if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
-			then
-				errAlt=true
-			fi ;;
-		"entier")
-			if [[ $before == "entier" ]]
-			then
-				errAlt=true
-			fi ;;
-		*)
-			echo "** erreur élément inconnu ! **"
+	# Analyse de chaque élément
+	errAlt=false
+	before=""
+	for t in `type $*`
+	do
+		case $t in
+			"somme" | "sous" | "mult" | "div" )
+				if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
+				then
+					echo "** erreur d'alternance ! **"
+					return 1
+				fi ;;
+			"entier")
+				if [[ $before == "entier" ]]
+				then
+					echo "** erreur d'alternance ! **"
+					return 1
+				fi ;;
+			*)
+				echo "** erreur élément inconnu ! **"
+				return 1
+		esac
+		before=$t
+	done
+
+	# On test le premier élément
+	case `type $1` in
+		"mult" | "div" )
+			echo "** erreur opérateur en premier ! **"
+			return 1 ;;
 	esac
-	before=$t
-done
+
+	# on test le dernier élément
+	case $before in
+		"somme" | "sous" | "mult" | "div" )
+			echo "** erreur opérateur en dernier ! **"
+			return 1 ;;
+	esac
+
+	return 0
+}
 
 
-if [[ $errAlt == true ]]
-then
-	echo "** erreur d'alternance ! **"
-	exit 1
+if [[ $MAIN == "q4" ]]; then
+	# on affiche les types
+	for e in $*
+	do
+		type $e | sed 's/_/ /g'
+	done
+	# on test la syntaxe
+	err=`testSyntaxe $*`
+	if (( $? != 0)); then
+		echo "$err" >&2
+		exit 1
+	fi
 fi
-
-# On test le premier élément
-case `ques/question2.bash $1` in
-	"mult" | "div" )
-		echo "** erreur opérateur en premier ! **"
-		exit 1 ;;
-esac
-
-# on test le dernier élément
-case `ques/question2.bash ${!#}` in
-	"somme" | "sous" | "mult" | "div" )
-		echo "** erreur opérateur en dernier ! **"
-		exit 1 ;;
-esac
