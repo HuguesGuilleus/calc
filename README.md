@@ -3,6 +3,13 @@ Projet Calculatrice
 
 N'ayant pas précisé le langage à utiliser nous avons décider d'utiliser le bash, le JavaScript et le PHP pour réaliser cette calculatrice. Cela nous a permis de s'entraîner sur ces différents langages. Afin d'obtenir des comportements similaires, nous avons écrit une série de test pour chaque étape et le programme `test.bash` lancer ces testes.
 
+## Version
+|    Langage | Extension | Implémentation | Version         |
+| ---------: | :-------- | :------------- | :-------------- |
+|       bash | .bash     | GNU bash       | version 4.3.48  |
+| JavaScript | .js       | NodeJs         | version 10.15.1 |
+|        PHP | .php      | PHP            | version 7.0.33  |
+
 ## Exercices
 - Exercice 1: Réalise les quatre opérations sur deux entiers.
 - Exercice 2: Identification des types.
