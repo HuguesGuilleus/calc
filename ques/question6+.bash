@@ -1,56 +1,49 @@
 #!/bin/bash
 # GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
-# fonction qui calcule ce qu'on lui envoie en argument
-calcule(){
-	res=$1
-	for j in `seq 2 2 $#`
-	do
-		local after=$(( j + 1 ))
-		res=`ques/question3.bash $res ${!j} ${!after}`
-	done
-	return $res
-}
+if [[ -z $MAIN ]]; then
+	MAIN="q6+"
+fi
+source ques/question2.bash
+source ques/question6.bash
 
-# fonction qui fait le calule (avec priorité des opérateurs)
-priorite(){
-	groupeop=""
-	g="$1"
+# Calcule d'expression avec la priorité
+function calcExprPrio(){
+	# Si premier argument est une addition ou une soustraction
+	case `type $1` in
+		"somme" )
+			# on supprime le premier argument: '+'
+			shift ;;
+		"sous")
+			# on supprime le premier argument: '-'
+			# Le s permet que set n'interprète pas -1 comme une option
+			set s -1 "x" ${*:2}
+			shift ;;
+	esac
+
+	# on calcule tout les facteurs
+	termes=""
+	facteurs="$1"
 	for i in `seq 2 2 $#`
 	do
 		after=$(( i + 1 ))
-		case `ques/question2.bash ${!i}` in
+		case `type ${!i}` in
 			"mult" | "div" )
-				g="$g ${!i} ${!after}" ;;
+				facteurs="$facteurs ${!i} ${!after}" ;;
 			"somme" | "sous")
-				calcule $g
-				groupeop="$groupeop $? ${!i}"
-				g="${!after}"
+				termes="$termes `calcExpr $facteurs` ${!i}"
+				facteurs="${!after}"
 				;;
 			*)
 				echo "type inconnue:: ${!i}"
 		esac
 	done
-
 	# on calcule le dernier groupe d'argument
-	calcule $g
-	groupeop="$groupeop $?"
-
+	termes="$termes `calcExpr $facteurs`"
 	# on calcule les sommes et les soustraction et on affiche le résultat
-	calcule $groupeop
-	echo $?
+	calcExpr $termes
 }
 
-# Si premier argument est une addition ou une soustraction
-case `ques/question2.bash $1` in
-	"somme" )
-		shift # on supprime le premier argument: '+'
-		args="$*" ;;
-	"sous")
-		shift # on supprime le premier argument: '-'
-		args="-1 x $*" ;;
-	*)
-		args="$*" ;;
-esac
-
-priorite $args
+if [[ $MAIN == "q6+" ]]; then
+	calcExprPrio $*
+fi
