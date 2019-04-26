@@ -5,7 +5,7 @@ MAIN="q7"
 source ques/question2.bash
 source ques/question6.bash
 
-int_para="" # Les opérandes présents dans une parenthèse
+int_para="" # Les opérandes présentes dans une parenthèse
 int_global="" # Les opérandes sans les parenthèses
 mode_para=false # Sommes-nous dans une parenthèse?
 for i in $*

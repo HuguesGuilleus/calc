@@ -9,7 +9,7 @@ source ques/question6.bash
 
 # Calcule d'expression avec la priorité
 function calcExprPrio(){
-	# Si premier argument est une addition ou une soustraction
+	# Si le premier argument est une addition ou une soustraction
 	case `type $1` in
 		"somme" )
 			# on supprime le premier argument: '+'
@@ -40,7 +40,7 @@ function calcExprPrio(){
 	done
 	# on calcule le dernier groupe d'argument
 	termes="$termes `calcExpr $facteurs`"
-	# on calcule les sommes et les soustraction et on affiche le résultat
+	# on calcule les sommes et les soustractions et on affiche le résultat
 	calcExpr $termes
 }
 

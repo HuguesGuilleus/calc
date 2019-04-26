@@ -7,10 +7,10 @@ fi
 source ques/question2.bash
 
 
-# Affiche les erreurs (stdout)
+# Affichage des erreurs (stdout)
 # @retourn 0: Ok, autre:erreur
 function testSyntaxe() {
-	# on vérifie qu'il y ai bien des arguments
+	# on vérifie qu'il y ait bien des arguments
 	if [[ $# == 0 ]]
 	then
 		echo "** pas d'argument **"
@@ -90,7 +90,7 @@ if [[ $MAIN == "q5" ]]; then
 	do
 		echo "$t" | sed 's/_/ /'
 	done
-	# On test la syntaxe
+	# On teste la syntaxe
 	err=`testSyntaxe $*`
 	if [[ $? != 0 ]]; then
 		echo "$err" >&2

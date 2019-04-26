@@ -4,7 +4,7 @@ MAIN="calc"
 source ques/question5.bash
 source ques/question8.bash
 
-# on test la syntaxe
+# on teste la syntaxe
 err=`testSyntaxe $*`
 if [[ $? != 0 ]]; then
 	echo "Erreur de syntaxe:"

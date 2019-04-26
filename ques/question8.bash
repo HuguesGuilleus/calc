@@ -7,7 +7,7 @@ fi
 source ques/question2.bash
 source ques/question6+.bash
 
-# Calule d'experssion avec des parenthèses et la priorité des opérateurs
+# Calule d'expression avec des parenthèses et la priorité des opérateurs
 function calcExprPara() {
 	arg=""
 	paran=0
@@ -39,10 +39,10 @@ function calcExprPara() {
 	done
 
 	while [[ $paramax -ge 0 ]]; do
-		para=0 # le niveau de parenthèse actuelle
+		para=0 # le niveau actuel de parenthèse
 		calcule=false # ce mode indique si il faut calculer ou attendre le bon niveau de parenthèsage
 		g="" # le groupe d'opération à calculer
-		newArg="" # La nouvelle expression avec un niveau de parenthèsage en moin
+		newArg="" # La nouvelle expression avec un niveau de parenthèsage en moins
 		for i in $arg
 		do
 			if [[ `type $i` == "para_fermante" ]] ; then

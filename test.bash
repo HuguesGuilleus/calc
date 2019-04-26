@@ -5,12 +5,12 @@ clear
 
 for lang in bash php js
 do
-	# Vérification du bon fonctionnement de l'interpréteur avec un "Hello Word"
-	if [[ !( -x hello/word.$lang ) ]]; then
-		printf "\033[01;33mERREUR le programme hello/word.$lang n'existe pas ou n'est pas exécutable\n\n"
+	# Vérification du bon fonctionnement de l'interpréteur avec un "Hello World"
+	if [[ !( -x hello/world.$lang ) ]]; then
+		printf "\033[01;33mERREUR le programme hello/world.$lang n'existe pas ou n'est pas exécutable\n\n"
 		continue
-	elif [[ `hello/word.$lang 2>&1` != "Hello Word" ]]; then
-		printf "\033[01;31mERREUR le language <$lang> n'est pas implémenté\n\n"
+	elif [[ `hello/world.$lang 2>&1` != "Hello World" ]]; then
+		printf "\033[01;31mERREUR le langage <$lang> n'est pas implémenté\n\n"
 		continue
 	fi
 
