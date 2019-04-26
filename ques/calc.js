@@ -10,7 +10,7 @@ arg.splice(0,2);
 
 var test = q5.testSyntaxe(arg,false);
 if (test.pb) {
-	console.log("Erreur de syntaxe:\n"+test.out);
+	console.log("Erreur de syntaxe:\n"+test.type);
 	console.error(test.err);
 	process.exit(1);
 }

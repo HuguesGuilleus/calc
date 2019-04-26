@@ -3,7 +3,7 @@
 
 clear
 
-for lang in bash js php
+for lang in bash php js
 do
 	# Vérification du bon fonctionnement de l'interpréteur avec un "Hello Word"
 	if [[ !( -x hello/word.$lang ) ]]; then
@@ -17,8 +17,7 @@ do
 	total=0
 	reussite=0
 	timeBefore=`date +%s`
-	for test in dataTest/q5/*.txt
-	# for test in dataTest/test.txt
+	for test in dataTest/*/*.txt
 	do
 		(( total += 1 ))
 		name=`sed -n "1 p" $test`

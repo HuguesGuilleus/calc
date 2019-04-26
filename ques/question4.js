@@ -4,11 +4,7 @@
 const q2 = require('./ques/question2.js');
 
 if (require.main === module) {
-	let arg=[];
-	for (let i=2; i < process.argv.length; i++) {
-		arg.push(process.argv[i]);
-	}
-	if(testSyntaxe(arg)){
+	if(testSyntaxe( process.argv.slice(2) )){
 		process.exit(1);
 	}
 } else {
@@ -28,10 +24,12 @@ function testSyntaxe(arg) {
 			throw "pas d'arg"
 		}
 
+		// on trouve les types
 		let argType = q2.typeAll(arg);
 		for (let e of argType) {
 			console.log(e);
 		}
+		// on teste
 		alternance(argType);
 		debut_fin(argType);
 
@@ -59,12 +57,12 @@ function testSyntaxe(arg) {
 
 
 /**
-	@param {[]String} La liste des types de chaque paramètres
+	@arg argType {[]String} La liste des types de chaque paramètres
 	Lève un exeption si il y a un problème
 */
-function alternance(tab){
+function alternance(argType){
 	let before = null;
-	for(let e of tab){
+	for(let e of argType){
 		switch (e) {
 			case "entier":
 				if(before === "entier")
@@ -83,7 +81,7 @@ function alternance(tab){
 }
 
 /**
-	@param {[]String} La liste des types de chaque paramètres
+	@arg argType {[]String} La liste des types de chaque paramètres
 	Lève un exeption si il y a un problème par rapport au premier ou au dernier éléments
 */
 function debut_fin(argType){

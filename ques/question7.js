@@ -5,13 +5,7 @@
 const q2 = require("./ques/question2.js") ;
 const calcExpr = require("./ques/question6.js").calcExpr ;
 
-if (require.main === module) {
-	console.log("résultat =", calcExpr1Para(process.argv.slice(2)) );
-} else {
-	module.exports = {
-		calcExpr1Para:calcExpr1Para,
-	};
-}
+console.log("résultat =", calcExpr1Para(process.argv.slice(2)) );
 
 /**
 	@arg arg {[]String} une exprésion avec un seul niveau de parenthèses

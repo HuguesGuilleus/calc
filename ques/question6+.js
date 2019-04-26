@@ -3,6 +3,7 @@
 
 const q2 = require("./ques/question2.js");
 const q3 = require("./ques/question3.js");
+const q6 = require("./ques/question6.js");
 
 if (require.main === module) {
 	console.log( calcExprPrio(process.argv.slice(2)) );
@@ -12,10 +13,9 @@ if (require.main === module) {
 	};
 }
 
-
 /**
-	@argument args {[]String}
-	@ret res {Number} résultat du calcule (priorité des opérateurs)
+	@argument args {[]String} legal La liste des opérandes
+	@return res {Number} résultat du calcule (priorité des opérateurs)
 */
 function calcExprPrio(arg){
 	// Si le premier élément est un plus ou un moins
@@ -28,6 +28,7 @@ function calcExprPrio(arg){
 			break;
 	}
 
+	// nous séléctionnons les groupes de multiplication et de duivision
 	var termes = []; // somme et soustraction
 	var facteurs = [arg[0]]; // multiplication et division
 	for(let i=1; i<arg.length; i+=2){
@@ -37,23 +38,11 @@ function calcExprPrio(arg){
 				facteurs.push(arg[i], arg[i+1]);
 				break;
 			default:
-				termes.push( calcExprSimple(facteurs), arg[i] )
+				termes.push( q6.calcExpr(facteurs), arg[i] )
 				facteurs = [arg[i+1]];
 		}
 	}
-	termes.push(calcExprSimple(facteurs));
-	return calcExprSimple(termes);
-}
-
-
-/**
-	@argument args {[]String}
-	@ret res {Number} résultat du calcule (pas de priorité des opérateurs)
-*/
-function calcExprSimple(arg) {
-	resultat = arg[0];
-	for(let i=1; i<arg.length; i+=2){
-		resultat = q3.calc(resultat,arg[i],arg[i+1]);
-	}
-	return resultat;
+	termes.push(q6.calcExpr(facteurs));
+	// on calcule les sommes et les soustractions
+	return q6.calcExpr(termes);
 }

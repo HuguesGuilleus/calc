@@ -3,7 +3,6 @@
 
 const q3 = require("./ques/question3.js");
 
-
 if (require.main === module) {
 	console.log("résultat =", calcExpr( process.argv.slice(2) ) );
 } else {
@@ -12,10 +11,9 @@ if (require.main === module) {
 	}
 }
 
-
 /**
-	@argument args {[]String}
-	@ret res {Number} résultat du calcule (pas de priorité des opérateurs)
+	@arg args {[]String|Number} Liste des opérandes
+	@return res {Number} résultat du calcule (pas de priorité des opérateurs)
 */
 function calcExpr(args) {
 	var res = args[0];

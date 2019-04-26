@@ -4,7 +4,6 @@
 const q2 = require("./ques/question2.js");
 const calcExprPrio = require("./ques/question6+.js").calcExprPrio;
 
-
 if (require.main === module) {
 	console.log(calcExprPara(process.argv.slice(2)));
 } else {
@@ -13,9 +12,8 @@ if (require.main === module) {
 	};
 }
 
-
 /**
-	@rag argBrute {[]String} l'expression à préparer
+	@rag argBrute {[]String} l'expression à calculer
 	@return {Number} Le résultat
 */
 function calcExprPara(argBrute) {
@@ -36,7 +34,6 @@ function calcExprPara(argBrute) {
 			arg.push(e);
 		}
 		tbefore=type;
-
 		// mesure le niveau maximale de parenthèses
 		switch (type) {
 			case "para ouvrante":
@@ -53,7 +50,7 @@ function calcExprPara(argBrute) {
 	for (; paramax >= 0; paramax--) {
 		let para=0;
 		let calcule=false; // indique s'il faut calculer ou attendre le bon niveau de parnethèses
-		let subArg=[]; // l'expression dans la parnthèse calculé
+		let subArg=[]; // l'expression dans la parenthèse calculé
 		let newArg=[];
 		for (let e of arg) {
 			if (q2.type(e)==="para fermante") {

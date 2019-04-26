@@ -1,23 +1,25 @@
 #!/usr/bin/nodejs
 // GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
-
 if ( require.main === module ) {
-	// le programme est un processus seul
-	for(let i=2;i<process.argv.length;i++){
-		console.log(type(process.argv[i]));
+	// la méthode slice sert à récupérer que les arguments utiles
+	// t coorespond au type de chaque argument
+	for (let t of typeAll(process.argv.slice(2)) ) {
+		console.log(t);
 	}
 } else {
-	// le programme est un module et on exporte la fonction type
 	module.exports = {
 		type:type,
 		typeAll:typeAll,
 	}
 };
 
-// retourne le type (String) de la chaîne prise en argument
-function type(el){
-	switch (el) {
+/**
+	@arg e {String} L'Élément dont on veut déterminer le type
+	@return {String} le type de l'élément donné
+*/
+function type(e){
+	switch (e) {
 		case "\\(":
 		case "(":
 			return "para ouvrante";
@@ -29,7 +31,7 @@ function type(el){
 		case "x":	return "mult";
 		case "/":	return "div";
 		default:
-			if( /[+-?\d+]/.test(el))
+			if( /[+-?\d+]/.test(e))
 				return "entier";
 			else
 				return "argument inconnu";
@@ -37,8 +39,8 @@ function type(el){
 }
 
 /**
-	@param {[]String} les paramètres qui serons analysé
-	@param {[]String} la liste des types pour chaque paramètres
+	@arg tab {[]String} les paramètres qui serons analysés
+	@return ret {[]String} la liste des types pour chaque paramètres
 */
 function typeAll(tab) {
 	var ret=[];

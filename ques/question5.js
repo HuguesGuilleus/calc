@@ -5,13 +5,12 @@ const q2 = require("./ques/question2.js");
 
 if (require.main === module) {
 	let test = testSyntaxe( process.argv.slice(2), true ) ;
-	// console.log(test);
 	if (test.pb) {
-		console.log(test.out);
+		console.log(test.type);
 		console.error(test.err);
 		process.exit(1);
 	} else {
-		console.log(test.out);
+		console.log(test.type);
 	}
 } else {
 	module.exports = {
@@ -22,30 +21,30 @@ if (require.main === module) {
 
 /**
 	@param arg {[]String} liste des opérandes
-	@ret {Object}
+	@return {Object}
 		pb{Boolean}: Y-a-til eu un problème,
-		out{String}: Les types
+		type{String}: Les types
 		err {String}: L'erreur
 */
 function testSyntaxe(arg) {
 	try {
-		var out = "";
+		var typeOut = "";
 		var erreur="";
-		var probleme = false;
-		if (arg.length===0) {
+		var pb = false;
+		if ( arg.length === 0 ) {
 			throw "err aucun arg";
 		}
 		var type = q2.typeAll(arg);
-		// on affiche tout les type
-		for (var i = 0; i < type.length-1; i++) {
-			out += type[i]+"\n" ;
+		for (let t of type) {
+			typeOut += t + "\n";
 		}
-		out += type[type.length-1] ;
+		// on retire le dernier caractère qui est un retour à la ligne
+		typeOut = typeOut.slice(0,typeOut.length-1)
 		// on teste
 		alternance(type);
 		prem_dern(type);
 	} catch (err) {
-		probleme = true ;
+		pb = true ;
 		switch (err) {
 			case "err aucun arg":
 				erreur = "** pas d'argument **" ;
@@ -63,13 +62,13 @@ function testSyntaxe(arg) {
 				erreur = "** erreur opérateur en dernier **" ;
 				break;
 			default:
-				console.error(err,out);
+				console.error(err,typeOut);
 				process.exit(2);
 		}
 	} finally {
 		return {
-			pb:probleme,
-			out:out,
+			pb:pb,
+			type:typeOut,
 			err:erreur,
 		};
 	}
@@ -85,7 +84,6 @@ function prem_dern(arg){
 		case 'mult':
 		case 'div':
 			throw "err prem";
-			break;
 	}
 	switch (arg[arg.length-1]) {
 		case "somme":
@@ -93,14 +91,13 @@ function prem_dern(arg){
 		case "mult":
 		case "div":
 			throw "err dern";
-			break;
 	}
 }
 
 
 /**
 	@prama arg {[]String} La liste des types des arguments
-	vérification de l'alternance entre les opérandes et des parnethèses
+	Vérification de l'alternance entre les opérandes et des parnethèses
 */
 function alternance(arg){
 	let para = 0;

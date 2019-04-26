@@ -5,11 +5,7 @@ const q1 = require("./ques/question1.js");
 const q2 = require("./ques/question2.js");
 
 if (require.main === module) {
-	try {
-		console.log(calc( process.argv[2],process.argv[3],process.argv[4] ));
-	} catch (err) {
-		console.error("Q3:",err);
-	}
+	console.log(calc( process.argv[2],process.argv[3],process.argv[4] ));
 } else {
 	module.exports = {
 		calc:calc,
