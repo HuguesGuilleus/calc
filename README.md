@@ -1,6 +1,8 @@
 Projet Calculatrice
 ====================
 
+N'ayant pas précisé le langage à utiliser nous avons décider d'utiliser le bash, le JavaScript et le PHP pour réaliser cette calculatrice. Cela nous a permis de s'entraîner sur ces différents langages. Afin d'obtenir des comportements similaires, nous avons écrit une série de test pour chaque étape et le programme `test.bash` lancer ces testes.
+
 ## Exercices
 - Exercice 1: Réalise les quatre opérations sur deux entiers.
 - Exercice 2: Identification des types.
@@ -10,7 +12,7 @@ Projet Calculatrice
 - Exercice 6: Calcule d'expression sans la priorités des opérateurs et sans les parenthèses.
 - Exercice 6+: Calcule d'expression avec la priorités des opérateurs et sans les parenthèses.
 - Exercice 7: Calcule d'expression sans la priorités des opérateurs et avec un niveau de parenthèses
-- Exercice 8: Calcule avec la priorité des opérateurs et les parenthèses.
+- Exercice 8: Calcule avec la priorité des opérateurs et avec les parenthèses.
 - calc: Calculatrice finale basée sur les tests de syntaxe de l'exercice 5 et le calcule de l'exercice 8.
 ### Arbre de dépendance
 ```
@@ -31,9 +33,9 @@ calc
 ```
 
 ## Fichier de test
-Afin que les différentes implémentation aient le même comportement, nous avons écrit environ 80 tests, et nous avons créé le programme `test.bash` qui sert à lancer tout les tests. *Afin de vérifier que l'ordinateur qui exécute les tests possède bien un interpréteur de chaque language, des traditionnelle "Hello Word" sont lancé et testé.* Les fichiers de test sont situés dans le répertoire dataTest/ et dans un sous-répertoire correspondant à l'exercice, il sont constitués de:
+Afin que les différentes implémentations aient le même comportement, nous avons écrit environ 80 tests, et nous avons créé le programme `test.bash` qui sert à les lancer. Le répertoire hello/ contient des programmes qui affiche «Hello Word» ce qui permet de vérifier que le langage est bien supporté. Les fichiers de test sont situés dans le répertoire dataTest/ et dans un sous-répertoire correspondant à l'exercice, il sont constitués de:
 1. Nom du test
-2. Nom du programme testé sans l'extension qui dépend du langage utilisé
+2. Nom du programme testé sans l'extension
 3. Les arguments à passer au programme
 4. Le code de sortie
 5. La sortie `stdout` attendue
