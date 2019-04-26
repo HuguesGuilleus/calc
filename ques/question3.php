@@ -6,7 +6,7 @@
 		$main = "q3" ;
 	}
 
-	// les appèle des fonctions ob_start et ob_end_clean servent à ne pas afficher le shebang
+	// ob_start() et ob_end_clean() servent à ne pas afficher les shebangs
 	ob_start();
 	require_once './ques/question1.php' ;
 	require_once './ques/question2.php' ;

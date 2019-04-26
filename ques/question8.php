@@ -23,7 +23,7 @@
 			$tbefore="";
 			foreach ($argBrute as $e) {
 				$type=q2::type($e);
-				// on met des x explicite là où il étaient implicites
+				// on met des 'x' explicites là où ils étaient implicites
 				if ($type=="para ouvrante" &&
 					($tbefore=="entier" || $tbefore=="para fermante")) {
 					array_push($oldArg, "x", $e);
@@ -32,7 +32,7 @@
 				} else {
 					array_push($oldArg, $e);
 				}
-				// mesure le niveau maximale de parenthèses
+				// mesure le niveau maximale de parenthèse
 				switch ($type) {
 					case "para ouvrante":
 						$paran++;
@@ -45,14 +45,10 @@
 				}
 				$tbefore=$type;
 			}
-			// on calcule le niveau max de parenthèses
-			// print_r($oldArg) ;
-			// return 0 ;
-			// $oldArg = [ "3","+","2","x","2" ];
-			// return q8::calcExprPrio($oldArg);
+			// on calcule le niveau max de parenthèses et on décrémente
 			for(; $paramax>=0;$paramax--) {
 				$para=0;
-				// indique s'il faut calculer ou attendre le bon niveau de parenthèses
+				// indique s'il faut calculer ou attendre le bon niveau de parenthèse
 				$calcule=false;
 				$subArg=[];
 				$newArg=[];

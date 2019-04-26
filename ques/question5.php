@@ -13,7 +13,7 @@
 	class q5 {
 		/**
 		* @param arg {[]String} liste des opérandes
-		* @param print {Boolean} indique si il faut afficher les types en temps normale
+		* @param print {Boolean} indique si il faut afficher les types si il n'y a pas d'erreur
 		* @return {Boolean} false:OK, true:erreur
 		*/
 		function testSyntaxe($arg, $print) {

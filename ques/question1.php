@@ -10,7 +10,7 @@
 	 */
 	class q1 {
 		function somme($a,$b) {
-			return (int)$a + (int)$b ;
+			return $a + $b ;
 		}
 		function sous($a,$b) {
 			return $a - $b ;

@@ -13,7 +13,6 @@
 	class q4 extends q2 {
 		/**
 		* @param arg {[]String} liste des opérandes
-		* @param print {Boolean} indique si il faut afficher les types en temps normale
 		* @return {Boolean} false:OK, true:erreur
 		*/
 		function testSyntaxe($arg) {

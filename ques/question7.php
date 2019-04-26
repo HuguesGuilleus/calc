@@ -17,9 +17,9 @@
 		* @return res {int} résultat // pas de priorité
 		*/
 		public function calcExpr1Para($arg) {
-			// tableau contenant les opérandes horsd des parenthèses calc
+			// tableau contenant les opérandes hors des parenthèses calc
 			$int_global=[];
-			// indique si l'on se trouve dans une parenthèsses
+			// indique si l'on se trouve dans une parenthèse
 			$mode_para = false;
 			foreach ($arg as $e) {
 				$type = q2::type($e);
