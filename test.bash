@@ -3,7 +3,7 @@
 
 clear
 
-for lang in bash
+for lang in bash js php
 do
 	# Vérification du bon fonctionnement de l'interpréteur avec un "Hello Word"
 	if [[ !( -x hello/word.$lang ) ]]; then
