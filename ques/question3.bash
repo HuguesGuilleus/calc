@@ -10,7 +10,7 @@ source ques/question2.bash
 
 # @arg $1,$3 entier
 # @arg $2 opérateur
-# @retrn (stdout) résultat
+# @return (stdout) résultat
 # Nous utilisons stdout car le retour est non signé et limité à un octet
 function calcSimple() {
 	case `type $2` in

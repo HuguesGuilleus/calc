@@ -1,6 +1,7 @@
 #!/bin/bash
 # GUILLEUS Hugues CPI2 <hugues.guilleus@ens.uvsq.fr>
 
+# Donne le type des opérandes
 function type() {
 	for i in `seq 1 $#`
 	do

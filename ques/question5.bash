@@ -17,19 +17,15 @@ function testSyntaxe() {
 		return 1
 	fi
 
-	# Analyse de chaque éléments
 	para=0 # para sera le niveau de parenthèsage, para>=0
 	before=0
-	# On met les parenthèses sous la forme \( ou \) et on envoi ça dans la Q2 puis affiche les types
-	argv=`echo $* | sed 's#(#\\(#g' | sed 's#)#\\)#g'`
-	for t in `type $argv`
+	for t in `type $*`
 	do
 		case $t in
 			"para_ouvrante")
 				(( para++ )) ;;
 			"para_fermante")
 				(( para-- ))
-				# Si ($rapa < 0) => on fera une erreur après l'itération
 				if [[ $para -lt 0 ]]
 				then
 					echo "** erreur parenthèse ! **"
@@ -40,26 +36,13 @@ function testSyntaxe() {
 					echo "** erreur alternance ! **"
 					return 1
 				fi ;;
-			"somme")
+			"somme" | "sous" )
 				if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 				then
 					echo "** erreur alternance ! **"
 					return 1
 				fi ;;
-			"sous")
-				if [[ $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
-				then
-					echo "** erreur alternance ! **"
-					return 1
-				fi ;;
-			"mult")
-				if [[ $before == "para_ouvrante"
-					|| $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
-				then
-					echo "** erreur alternance ! **"
-					return 1
-				fi ;;
-			"div")
+			"mult" | "div" )
 				if [[ $before == "para_ouvrante"
 					|| $before == "somme" || $before == "sous" || $before == "mult" || $before == "div" ]]
 				then
@@ -76,7 +59,7 @@ function testSyntaxe() {
 		before=$t
 	done
 
-	# on affiche les erreurs de parenthèses
+	# erreur si les parenthèses ne sont pas fermées
 	if [[ $para != 0 ]]
 	then
 		echo "** erreur parenthèse ! **"
@@ -98,6 +81,7 @@ function testSyntaxe() {
 		return 1
 	fi
 
+	return 0
 }
 
 if [[ $MAIN == "q5" ]]; then

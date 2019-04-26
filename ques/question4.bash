@@ -16,8 +16,6 @@ function testSyntaxe() {
 		return 1
 	fi
 
-	# Analyse de chaque élément
-	errAlt=false
 	before=""
 	for t in `type $*`
 	do
@@ -63,11 +61,11 @@ if [[ $MAIN == "q4" ]]; then
 	# on affiche les types
 	for e in $*
 	do
-		type $e | sed 's/_/ /g'
+		type $e
 	done
 	# on test la syntaxe
 	err=`testSyntaxe $*`
-	if (( $? != 0)); then
+	if (( $? != 0 )); then
 		echo "$err" >&2
 		exit 1
 	fi
