@@ -6,4 +6,5 @@ entier
 somme
 entier
 somme
+
 ** erreur opérateur en dernier **

@@ -6,4 +6,5 @@ para ouvrante
 entier
 div
 para fermante
+
 ** erreur alternance ! **

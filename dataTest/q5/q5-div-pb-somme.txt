@@ -6,4 +6,5 @@ entier
 somme
 div
 entier
+
 ** erreur alternance ! **

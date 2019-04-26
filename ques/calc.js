@@ -9,9 +9,9 @@ const arg = process.argv;
 arg.splice(0,2);
 
 var test = q5.testSyntaxe(arg,false);
-if (test.pb)
-{
+if (test.pb) {
 	console.log("Erreur de syntaxe:\n"+test.out);
+	console.error(test.err);
 	process.exit(1);
 }
 

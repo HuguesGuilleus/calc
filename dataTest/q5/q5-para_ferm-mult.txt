@@ -6,4 +6,5 @@ para ouvrante
 entier
 mult
 para fermante
+
 ** erreur alternance ! **

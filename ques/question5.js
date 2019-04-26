@@ -5,8 +5,10 @@ const q2 = require("./ques/question2.js");
 
 if (require.main === module) {
 	let test = testSyntaxe( process.argv.slice(2), true ) ;
+	// console.log(test);
 	if (test.pb) {
 		console.log(test.out);
+		console.error(test.err);
 		process.exit(1);
 	} else {
 		console.log(test.out);
@@ -22,11 +24,13 @@ if (require.main === module) {
 	@param arg {[]String} liste des opérandes
 	@ret {Object}
 		pb{Boolean}: Y-a-til eu un problème,
-		out{String}: Les type et les éventuelles erreurs
+		out{String}: Les types
+		err {String}: L'erreur
 */
 function testSyntaxe(arg) {
 	try {
 		var out = "";
+		var erreur="";
 		var probleme = false;
 		if (arg.length===0) {
 			throw "err aucun arg";
@@ -44,19 +48,19 @@ function testSyntaxe(arg) {
 		probleme = true ;
 		switch (err) {
 			case "err aucun arg":
-				out += "** pas d'argument **" ;
+				erreur = "** pas d'argument **" ;
 				break;
 			case "err alt":
-				out += "\n** erreur alternance ! **" ;
+				erreur = "** erreur alternance ! **" ;
 				break;
 			case "err para":
-				out += "\n** erreur parenthèse ! **" ;
+				erreur = "** erreur parenthèse ! **" ;
 				break;
 			case "err prem":
-				out += "\n** erreur opérateur en premier **" ;
+				erreur = "** erreur opérateur en premier **" ;
 				break;
 			case "err dern":
-				out += "\n** erreur opérateur en dernier **" ;
+				erreur = "** erreur opérateur en dernier **" ;
 				break;
 			default:
 				console.error(err,out);
@@ -66,6 +70,7 @@ function testSyntaxe(arg) {
 		return {
 			pb:probleme,
 			out:out,
+			err:erreur,
 		};
 	}
 }

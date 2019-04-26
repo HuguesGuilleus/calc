@@ -6,4 +6,5 @@ para ouvrante
 entier
 somme
 para fermante
+
 ** erreur alternance ! **

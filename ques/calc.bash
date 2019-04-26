@@ -1,11 +1,19 @@
 #!/bin/bash
 
+MAIN="calc"
+source ques/question5.bash
+
 arg=`echo $* | sed 's#\\\\*(#\\\\(#g' | sed 's#\\\\*)#\\\\)#g'`
 
 # on test la syntaxe
-std=$(ques/question5.bash $arg 2>&1)
+err=`testSyntaxe $arg`
 if [[ $? != 0 ]]; then
-	printf "Erreur de syntaxe:\n$std\n"
+	echo "Erreur de syntaxe:"
+	for t in `type $arg`
+	do
+		echo $t
+	done
+	echo "$err" >&2
 	exit 1
 fi
 

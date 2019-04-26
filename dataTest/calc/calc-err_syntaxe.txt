@@ -7,4 +7,5 @@ entier
 somme
 entier
 div
+
 ** erreur opérateur en dernier **

@@ -39,21 +39,22 @@
 				}
 				switch ($err->getMessage()) {
 					case "err aucun arg":
-						echo "** pas d'argument **\n";
+						fwrite(STDERR, "** pas d'argument **\n");
 						break;
 					case "err alt":
-						echo "** erreur alternance ! **\n";
+						fwrite(STDERR, "** erreur alternance ! **\n");
 						break;
 					case "err para":
-						echo "** erreur parenthèse ! **\n";
+						fwrite(STDERR, "** erreur parenthèse ! **\n");
 						break;
 					case "err prem":
-						echo "** erreur opérateur en premier **\n";
+						fwrite(STDERR, "** erreur opérateur en premier **\n");
 						break;
 					case "err dern":
-						echo "** erreur opérateur en dernier **\n";
+						fwrite(STDERR, "** erreur opérateur en dernier **\n");
 						break;
 					default:
+						fwrite(STDERR, "\n");
 						echo $err."\n";
 						exit(2);
 				}

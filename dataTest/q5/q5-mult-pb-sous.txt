@@ -6,4 +6,5 @@ entier
 sous
 mult
 entier
+
 ** erreur alternance ! **

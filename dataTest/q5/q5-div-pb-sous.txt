@@ -6,4 +6,5 @@ entier
 sous
 div
 entier
+
 ** erreur alternance ! **

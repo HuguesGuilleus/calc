@@ -6,4 +6,5 @@ para ouvrante
 entier
 sous
 para fermante
+
 ** erreur alternance ! **
