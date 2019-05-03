@@ -10,8 +10,8 @@ function type() {
 			'-')	echo "sous"  ;;
 			'x')	echo "mult"  ;;
 			'/')	echo "div"   ;;
-			'\(')	echo "para_ouvrante" ;;
-			'\)')	echo "para_fermante" ;;
+			'(' | '\(' )	echo "para_ouvrante" ;;
+			')' | '\)' )	echo "para_fermante" ;;
 			*)		echo "entier" ;;
 		esac
 	done
